@@ -4,4 +4,9 @@
     <string name="foreground_notification_stop_text">STOP</string>
     <string name="notification_channel_default">Primary Channel</string>
     <string name="notification_channel_second">Secondary Channel</string>
+    <string name="permission_fine_location_denied">Location permission is denied</string>
+    <string name="permission_fine_location_rationale">To track your location app needs location permission</string>
+    <string name="button_allow">Allow</string>
+    <string name="button_deny">Deny</string>
+    <string name="permission_fine_location_neverask">Location permission never ask is selected</string>
 </resources>
