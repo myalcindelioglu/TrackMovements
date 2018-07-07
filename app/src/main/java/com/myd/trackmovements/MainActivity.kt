@@ -23,22 +23,27 @@ class MainActivity : AppCompatActivity() {
         if (intent.action == ACTION_STOP) {
             stopService(intentForeground)
         } else {
-            startTrackingService(intentForeground)
+            startTrackingServiceWithPermissionCheck(intentForeground)
         }
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        onRequestPermissionsResult(requestCode, grantResults)
+    }
+
     @NeedsPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-    private fun startTrackingService(intent: Intent) {
+    fun startTrackingService(intent: Intent) {
         startService(intent)
     }
 
     @OnPermissionDenied(Manifest.permission.ACCESS_FINE_LOCATION)
-    private fun showLocationDenied() {
+    fun showLocationDenied() {
         Toast.makeText(this, R.string.permission_fine_location_denied, Toast.LENGTH_SHORT).show();
     }
 
     @OnShowRationale(Manifest.permission.ACCESS_FINE_LOCATION)
-    private fun showRationaleForLocation(request: PermissionRequest) {
+    fun showRationaleForLocation(request: PermissionRequest) {
         AlertDialog.Builder(this)
                 .setMessage(R.string.permission_fine_location_rationale)
                 .setPositiveButton(R.string.button_allow, { dialog, button -> request.proceed() })
