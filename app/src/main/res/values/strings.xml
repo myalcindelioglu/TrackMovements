@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Track Movements</string>
+    <string name="foreground_notification_content_text">Track Movements is tracking your location now. To stop tap the STOP button</string>
+    <string name="foreground_notification_stop_text">STOP</string>
+    <string name="notification_channel_default">Primary Channel</string>
+    <string name="notification_channel_second">Secondary Channel</string>
+</resources>
